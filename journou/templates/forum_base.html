@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{%block body%}
+  <h2 class="ms-2">
+  {% block greeting %}
+  {% endblock %}
+  </h2>
+  
+  <h6 class="ms-2">
+    {% block limitation %}
+    {% endblock %}
+  </h6>
+  
+  <table class="table table-hover table-dark ms-1 justify-content-center">
+    <thead>
+        <tr>
+            <!-- columns -->
+            <!-- <th scope="col">id</th> -->
+            <th scope="col">forum_name</th>
+            <th scope="col">date_posted</th>
+            <th scope="col">posted_by</th>
+            <th scope="col">likes</th>
+            <th scope="col">dislikes</th>
+            <th scope="col">options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- rows -->
+        {% for forum in forums %}
+            <tr>
+                <!-- <td>{{forum.id}}</td> -->
+                <td>{{forum.forum_name}}</td>
+                <td>{{forum.date_posted}}</td>
+                <td>{{forum.posted_by}}</td>
+                <td>{{forum.likes}}</td>
+                <td>{{forum.dislikes}}</td>
+                <td>
+                  <button class="btn btn-outline btn-success">Comment</button>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+{%endblock%}
